@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>众包同城跑腿配送服务平台后台系统</title>
+    {include file="common/top"}
+</head>
+
+<body>
+{include file="common/header"}
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {include file="common/menu"}
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li><a href="{:url('index/index')}">系统</a></li>
+                    <li><a href="{:url('evaluate/lst')}">评分列表</a></li>
+                    <li class="active">查看评分</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" action=""  enctype="multipart/form-data"   method="post">
+               
+                                        <div class="form-group">
+                                            <label for="phonenum" class="col-sm-2 control-label no-padding-right">订单编号</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" value="{$indent.id}" id="number" readonly="value" name="number" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phonenum" class="col-sm-2 control-label no-padding-right">接单者名字</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" value="{$user.username}" id="number" readonly="value" name="number" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phonenum" class="col-sm-2 control-label no-padding-right">总评价</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" value="{$user.overall}" id="number" readonly="value" name="number" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phonenum" class="col-sm-2 control-label no-padding-right">总接单次数</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" value="{$user.count}" id="number" readonly="value" name="number" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phonenum" class="col-sm-2 control-label no-padding-right">平均评价</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" value="{$overall}" id="number" readonly="value" name="number" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phonenum" class="col-sm-2 control-label no-padding-right">本单评价</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" value="{$evaluate.score}" id="number" readonly="value" name="number" type="text">
+                                            </div>
+                                        </div>
+                                                                     
+                                        <div class="form-group" style="margin: auto">
+                                            <a href="{:url('evaluate/lst')}" class="btn btn-primary btn-sm shiny">
+                                                <i class="fa fa-mail-reply"></i> 返回
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Body    required=""-->
+        </div>
+        <!-- /Page Content -->
+    </div>
+</div>
+
+{include file="common/js"}
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><!--Head--><head>
+    <meta charset="utf-8">
+    <title>登录页面</title>
+    {include file="common/top"}
+</head>
+<!--Head Ends-->
+<!--Body-->
+
+<body>
+    <div class="login-container animated fadeInDown">
+        <form action="" method="post">
+            <div class="loginbox bg-white">
+                <div class="loginbox-title">SIGN IN</div>
+                <div class="loginbox-textbox">
+                    <input  class="form-control" placeholder="username" name="adminname" type="text">
+                </div>
+                <div class="loginbox-textbox">
+                    <input class="form-control" placeholder="password" name="password" type="password">
+                </div>
+                <div class="loginbox-textbox">
+                    <input class="form-control" placeholder="code" name="code" style="margin:10px 0;width:60px;float:left;" type="text">
+                    <img  style="float:left; cursor:pointer;" src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}?'+Math.random();" />
+                </div>
+                <div class="loginbox-submit">
+                    <input class="btn btn-primary btn-block" value="Login" type="submit" style="margin-top: 20px">
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--Basic Scripts-->
+    {include file="common/js"}
+
+
+
+
+</body><!--Body Ends--></html>

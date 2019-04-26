@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>众包同城跑腿配送服务平台后台系统</title>
+    {include file="common/top"}
+</head>
+
+<body>
+{include file="common/header"}
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {include file="common/menu"}
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li><a href="{:url('index/index')}">系统</a></li>
+                    <li><a href="{:url('user/lst')}">用户列表</a></li>
+                    <li class="active">编辑用户</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">编辑用户</span>
+                            </div>
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+                                    <form class="form-horizontal" role="form" action=""  enctype="multipart/form-data"   method="post">
+                                        <input type="hidden" name="id" value="{$users.id}">
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label no-padding-right">用户名</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" value="{$users.username}" id="username" placeholder="username" name="username" type="text"  readonly="value">
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <label for="password" class="col-sm-2 control-label no-padding-right">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="password" placeholder="password" name="password"  type="password">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 留空则表示不修改密码</p>
+                                        </div> -->
+                                        <div class="form-group">
+                                            <label for="group_id" class="col-sm-2 control-label no-padding-right">权&nbsp;&nbsp;&nbsp;&nbsp;限</label>
+                                            <div class="col-sm-6">
+                                                <form>
+                                                    <label><input type="radio" name="power" />普通用户</label>
+                                                    <label><input type="radio" name="power" />商家</label> 
+                                                    <label><input type="radio" name="power" />接单者</label> 
+                                                </form>
+                                                
+                                               <!--  <select name="power">
+                                                    
+                                                    <option value="{$users.power}">
+                                                        {if condition="$users['power'] eq 0"}
+                                                        普通用户
+                                                        {else /}
+                                                            {if condition="$users['power'] eq 1"}
+                                                            接单者
+                                                            {/else}
+                                                            商家
+                                                            {/if}
+                                                        {/if}
+                                                    </option>
+                                                    <option value="{if condition="$users['power'] eq 0"}1{else /}{if condition="$users['power'] eq 1"}{else /}{/if}{/if}">
+                                                    {if condition="$users['power'] neq 1"}
+                                                    女
+                                                    {else /}
+                                                    男
+                                                    {/if}
+                                                    </option>
+
+                                                </select> -->
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <label for="group_id" class="col-sm-2 control-label no-padding-right">性&nbsp;&nbsp;&nbsp;&nbsp;别</label>
+                                            <div class="col-sm-6">
+                                                <select name="sex">
+                                                    <option value="{$users.sex}">
+                                                        {if condition="$users['sex'] eq 1"}
+                                                        男
+                                                        {else /}
+                                                        女
+                                                        {/if}
+                                                    </option>
+                                                    <option value="{if condition="$users['sex'] eq 1"}0{else /}1{/if}">
+                                                    {if condition="$users['sex'] neq 1"}
+                                                    女
+                                                    {else /}
+                                                    男
+                                                    {/if}
+                                                    </option>
+
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        
+                                        <!-- <div class="form-group">
+                                            <label for="pic" class="col-sm-2 control-label no-padding-right">头&nbsp;&nbsp;&nbsp;&nbsp;像</label>
+                                            <div class="col-sm-6">
+                                                <input id="pic" placeholder="" name="pic" style="display:inline;" type="file">
+                                                {if condition="$users['pic'] neq '' "}
+                                                <img src="__STATIC__{$users.pic}" height="50">
+                                                {else /}
+                                                暂无头像
+                                                {/if}
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Body    required=""-->
+        </div>
+        <!-- /Page Content -->
+    </div>
+</div>
+
+{include file="common/js"}
+</body>
+</html>

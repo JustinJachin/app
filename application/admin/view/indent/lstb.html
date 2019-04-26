@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>众包同城跑腿配送服务平台后台系统</title>
+    {include file="common/top"}
+</head>
+
+<body>
+{include file="common/header"}
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {include file="common/menu"}
+        <!-- /Page Sidebar -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li><a href="{:url('index/index')}">系统</a></li>
+                    <li class="active">订单管理</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+            <div class="indent">
+                <ul>
+                    <li><a href="{:url('indent/lst')}">所有订单</a></li>
+                    <li><a href="{:url('indent/lsta')}">未接单</a></li>
+                    <li class="active"><a href="lstb">未发货</a></li>
+                    <li><a href="{:url('indent/lstc')}">已发货</a></li>
+                    <li><a href="{:url('indent/lstd')}">未评价</a></li>
+                    <li><a href="{:url('indent/lste')}">已完成</a></li>
+                    <li><a href="{:url('indent/lstf')}">订单异常</a></li>
+                </ul>
+            </div>
+            <!-- Page Body -->
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                        <tr>
+                                            <th class="text-center">订单号</th>
+                                            
+                                            <th class="text-center">下单时间</th>
+                                            <th class="text-center">起始地址</th>
+                                            <th class="text-center">目的地址</th>
+                                            <th class="text-center">收货人</th>
+                                         
+                                            <th class="text-center">快递状态</th>
+
+                                            <th class="text-center">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {volist name="list" id="vo"}
+                                        <tr>
+                                            <td align="center">{$vo.id}</td>
+                                            
+                                            <th class="text-center">{$vo.creat_time|date="Y-m-d",###}</th>
+                                            <th class="text-center">{$vo.start}</th>
+                                            <th class="text-center">{$vo.bourn}</th>
+                                            <th class="text-center">{$vo.consignee}</th>   
+                                            <th class="text-center">未发货</th>
+                                            <td align="center">
+                                                <a href="{:url('indent/check',array('id'=>$vo['id']))}" class="btn btn-primary btn-sm shiny">
+                                                    <i class="fa fa-check"></i> 查看
+                                                </a>
+                                                <a href="#" onClick="warning('确实要删除吗', '{:url('indent/del',array('id'=>$vo['id']))}')" class="btn btn-danger btn-sm shiny">
+                                                    <i class="fa fa-trash-o"></i> 删除
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                        {/volist}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">{$list->render()}</div>
+            </div>
+            <!-- /Page Body -->
+        </div>
+
+
+        {include file="common/js"}
+</body>
+</html>

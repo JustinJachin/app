@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>众包同城跑腿配送服务平台后台系统</title>
+    {include file="common/top"}
+</head>
+
+<body>
+{include file="common/header"}
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        {include file="common/menu"}
+        <!-- /Page Sidebar -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li><a href="{:url('index/index')}">系统</a></li>
+                    <li class="active">用户管理</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+                <button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('user/add')}'">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                        <tr>
+                                            <th class="text-center">ID</th>
+                                            <th class="text-center">用户名</th>
+                                            <th class="text-center">性别</th>
+                                            <th class="text-center">年龄</th>
+                                            <th class="text-center">手机号</th>
+                                            <th class="text-center">头像</th>
+                                           
+                                            <th class="text-center">注册时间</th>
+                                            <th class="text-center">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {volist name="list" id="vo"}
+                                        <tr>
+                                            <td align="center">{$vo.id}</td>
+                                            <td align="center">{$vo.username}</td>
+                                            <th class="text-center">
+                                                {if condition="$vo['sex'] eq 0"}
+                                                女
+                                                {else /}
+                                                男
+                                                {/if}
+                                            </th>
+                                            <th class="text-center">{$vo.age}</th>
+                                            <th class="text-center">{$vo.phonenum}</th>
+                                            <th class="text-center">
+                                                {if condition="$vo['pic'] neq '' "}
+                                                <img src="https://imgpica.oss-cn-hangzhou.aliyuncs.com/{$vo.pic}" height="50">
+                                                {else /}
+                                                暂无头像
+                                                {/if}
+                                            </th>
+            
+                                            <th class="text-center">{$vo.creattime|date="Y-m-d",###}</th>
+                                            <td align="center">
+                                                <a href="{:url('user/check',array('id'=>$vo['id']))}" class="btn btn-primary btn-sm shiny">
+                                                    <i class="fa fa-check"></i> 查看
+                                                </a>
+                                                <!-- <a href="{:url('user/edit',array('id'=>$vo['id']))}" class="btn btn-primary btn-sm shiny">
+                                                    <i class="fa fa-edit"></i> 编辑
+                                                </a> -->
+                                                <a href="#" onClick="warning('确实要删除吗', '{:url('user/del',array('id'=>$vo['id']))}')" class="btn btn-danger btn-sm shiny">
+                                                    <i class="fa fa-trash-o"></i> 删除
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                        {/volist}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">{$list->render()}</div>
+            </div>
+            <!-- /Page Body -->
+        </div>
+
+
+        {include file="common/js"}
+</body>
+</html>
